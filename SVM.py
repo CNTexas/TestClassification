@@ -3,57 +3,42 @@ import os
 import sys
 import numpy as np
 from sklearn.svm import LinearSVC
-import textprocess
 from sklearn import metrics
-reload(sys)
-sys.setdefaultencoding('utf-8')
-tp = textprocess.Textprocess()
-tp.corpus_path ="test/"
-tp.pos_path = "test_pos/"
-tp.segment_path ="test_segment/"
-#预处理测试语料库放在post_path路径下
-#tp.preprocess()
-#分词测试语料库
-#tp.segment()
-#test_data_corpus放测试语料库，actual放对应的类别索引
-test_data_corpus =[]
-actual = []
-#测试语料库的类别列表
-category = os.listdir(tp.segment_path)
-#预测第三个类别的准确率
-category_index = 4
-test_doc_path = tp.segment_path +category[category_index]+"/"
-test_dir = os.listdir(test_doc_path)
-for myfile in test_dir:
-    #测试文件的路径
-    file_path = test_doc_path + myfile
-    file_obj = open(file_path,'rb')
-    test_data_corpus.append(file_obj.read())
-    actual.append(category_index)
-    file_obj.close()
+from Tools import readbunchobj
+from sklearn.neighbors import KNeighborsClassifier
+
+# 导入训练集
+trainpath = "train_word_bag/tfdifspace.dat"
+train_set = readbunchobj(trainpath)
+
+# 导入测试集
+testpath = "test_word_bag/testspace.dat"
+test_set = readbunchobj(testpath)
 
 
-tp.stopword_path ="ch_stop_words.txt"
-#得到停词不列表
-stopword_list = tp.getstopword(tp.stopword_path)
-tp.wordbag_path ="text_corpus_wordbag/"
-tp.word_weight_bag_name ="word_weight_bag.dat"
-tp.load_word_weight_bag()
-#得到测试语料的词典
-tp.load_word_weight_bag()
-myvocabulary = tp.word_weight_bag.vocabulary
-tdm = tp.word_weight_bag.tdm
-test_matrix = tp.tfidf_value(test_data_corpus,myvocabulary)
-print "测试语料库tfidf矩阵的大小",test_matrix.shape
 SVM = LinearSVC(penalty="l1",dual=False,tol=1e-4)
-SVM.fit(tdm,tp.word_weight_bag.label)
+SVM.fit(train_set.tdm,train_set.label)
 
 #预测分类结果
-predict_test = SVM.predict(test_matrix)
-for file_name,exp in zip(test_dir,predict_test):
-    print "测试文件名：",file_name,"实际类别：",category[category_index],"预测类别：",tp.word_weight_bag.target_name[exp]
+predicted = SVM.predict(test_set.tdm)
 
-actual = np.array(actual)
-m_precision = metrics.accuracy_score(actual,predict_test)
-print "准确率：",m_precision
+count=0
+for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, predicted):
+    if flabel != expct_cate:
+        print(file_name, ": 实际类别:", flabel, " -->预测类别:", expct_cate)
+    else:
+        count=count+1
 
+print("正确的判断:"+str(count))
+print("预测完毕!!!")
+
+# 计算分类精度：
+
+def metrics_result(actual, predict):
+    print('精度:{0:.3f}'.format(metrics.precision_score(actual, predict, average='weighted')))
+    print('召回:{0:0.3f}'.format(metrics.recall_score(actual, predict, average='weighted')))
+    print('f1-score:{0:.3f}'.format(metrics.f1_score(actual, predict, average='weighted')))
+
+
+metrics_result(test_set.label, predicted)
+####
