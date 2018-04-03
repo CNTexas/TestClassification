@@ -39,7 +39,7 @@ acurations=list()
 for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, predicted):
     tem += 1
     if flabel != expct_cate:
-        print(file_name, ": 实际类别:", flabel, " -->预测类别:", expct_cate)
+        print(file_name, ": 实际类别:", flabel, " --->预测类别:", expct_cate)
     else:
         count = count + 1
         total += 1

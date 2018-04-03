@@ -36,7 +36,7 @@ def readbunchobj(path):
     with open(path, "rb") as file_obj:
         bunch = pickle.load(file_obj)
     return bunch
-
+#
 #输出结果
 def drawret(total,acurations):
     x = [0, 10]
