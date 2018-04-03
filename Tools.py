@@ -10,7 +10,8 @@
 @time: 2018/01/23 
 """
 import pickle
-
+import matplotlib.pyplot as plt
+import numpy as np
 
 # 保存至文件
 def savefile(savepath, content):
@@ -35,3 +36,18 @@ def readbunchobj(path):
     with open(path, "rb") as file_obj:
         bunch = pickle.load(file_obj)
     return bunch
+
+#输出结果
+def drawret(total,acurations):
+    x = [0, 10]
+    plt.figure()
+    print(acurations)
+    for acuration in acurations:
+        y=[acuration,acuration]
+        print(acuration)
+        plt.plot(x,y)
+    y=[total,total]
+    plt.plot(x,y)
+    plt.show()
+
+

@@ -12,7 +12,10 @@
 
 from sklearn.naive_bayes import MultinomialNB  # 导入多项式贝叶斯算法
 from sklearn import metrics
-from Tools import readbunchobj
+from Tools import *
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 # 导入训练集
 trainpath = "train_word_bag/tfdifspace.dat"
@@ -29,13 +32,24 @@ clf = MultinomialNB(alpha=0.001).fit(train_set.tdm, train_set.label)
 predicted = clf.predict(test_set.tdm)
 
 count=0
+total=0
+tem=0
+test_set_len = 300
+acurations=list()
 for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, predicted):
+    tem += 1
     if flabel != expct_cate:
         print(file_name, ": 实际类别:", flabel, " -->预测类别:", expct_cate)
     else:
-        count=count+1
+        count = count + 1
+        total += 1
+    if tem == 300:
+        acurations.append(count / tem)
+        count = 0
+        tem=0
+drawret(total/(test_set_len*9),acurations=acurations)
 
-print("正确的判断:"+str(count))
+print("正确的判断:"+str(total))
 print("预测完毕!!!")
 
 # 计算分类精度：
