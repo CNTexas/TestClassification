@@ -44,13 +44,14 @@ for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, pre
         count = count + 1
         total += 1
     if tem == 300:
-        acurations.append(count / tem)
+        acurations.append(count / tem)#最后一次没有传入，或许数据少了几个，导致没到300就结束了。
         count = 0
         tem=0
-drawret(total/(test_set_len*9),acurations=acurations)
-
 print("正确的判断:"+str(total))
 print("预测完毕!!!")
+drawret(total/(test_set_len*9),acurations=acurations)
+
+
 
 # 计算分类精度：
 

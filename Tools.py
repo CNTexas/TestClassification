@@ -41,13 +41,14 @@ def readbunchobj(path):
 def drawret(total,acurations):
     x = [0, 10]
     plt.figure()
+    plt.ylim(0, 1.0, 0.1)
     print(acurations)
     for acuration in acurations:
         y=[acuration,acuration]
-        print(acuration)
+        #print(acuration)
         plt.plot(x,y)
     y=[total,total]
-    plt.plot(x,y)
+    plt.plot(x,y,'r')
     plt.show()
 
 
