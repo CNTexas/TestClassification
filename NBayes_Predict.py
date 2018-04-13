@@ -49,7 +49,7 @@ for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, pre
         tem=0
 print("正确的判断:"+str(total))
 print("预测完毕!!!")
-drawret(total/(test_set_len*9),acurations=acurations)
+
 
 
 
@@ -62,3 +62,4 @@ def metrics_result(actual, predict):
 
 
 metrics_result(test_set.label, predicted)
+drawret(total/(test_set_len*9),acurations=acurations)
