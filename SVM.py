@@ -4,7 +4,7 @@ import sys
 import numpy as np
 from sklearn.svm import LinearSVC
 from sklearn import metrics
-from Tools import readbunchobj
+from Tools import *
 from sklearn.neighbors import KNeighborsClassifier
 
 # 导入训练集
@@ -23,11 +23,22 @@ SVM.fit(train_set.tdm,train_set.label)
 predicted = SVM.predict(test_set.tdm)
 
 count=0
+total=0
+tem=0
+test_set_len = 300
+acurations=list()
 for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, predicted):
+    tem += 1
     if flabel != expct_cate:
-        print(file_name, ": 实际类别:", flabel, " -->预测类别:", expct_cate)
+        print(file_name, ": 实际类别:", flabel, " --->预测类别:", expct_cate)
     else:
-        count=count+1
+        count = count + 1
+        total += 1
+    if tem == 300:
+        acurations.append(count / tem)#最后一次没有传入，或许数据少了几个，导致没到300就结束了。
+        count = 0
+        tem=0
+acurations.append(count / tem)
 
 print("正确的判断:"+str(count))
 print("预测完毕!!!")
@@ -41,4 +52,6 @@ def metrics_result(actual, predict):
 
 
 metrics_result(test_set.label, predicted)
+drawret(total/(test_set_len*9),acurations=acurations)
+
 ####

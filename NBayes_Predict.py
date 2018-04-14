@@ -47,6 +47,7 @@ for flabel, file_name, expct_cate in zip(test_set.label, test_set.filenames, pre
         acurations.append(count / tem)#最后一次没有传入，或许数据少了几个，导致没到300就结束了。
         count = 0
         tem=0
+acurations.append(count / tem)
 print("正确的判断:"+str(total))
 print("预测完毕!!!")
 
