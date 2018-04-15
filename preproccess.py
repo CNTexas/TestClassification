@@ -1,5 +1,13 @@
-import os
-import jieba
+#!/usr/bin/env python
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/4/15 21:35
+@desc:
+'''
+
 import os
 import pickle
 
@@ -72,7 +80,7 @@ if __name__ == "__main__":
     seg_path = "test_corpus_seg_2/"  # 分词后分类语料库路径
     corpus2Bunch(wordbag_path, seg_path)
 
-    stopword_path = "train_word_bag_2/hlt_stop_words.txt"
+    stopword_path = "train_word_bag_2/stopwords.txt"
     bunch_path = "train_word_bag_2/train_set.dat"
     space_path = "train_word_bag_2/tfdifspace.dat"
     vector_space(stopword_path, bunch_path, space_path)

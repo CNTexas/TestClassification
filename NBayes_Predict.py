@@ -1,13 +1,12 @@
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""
-@version: python3.6
-@author: XiangguoSun
-@contact: sunxiangguodut@qq.com
-@file: NBayes_Predict.py
-@time: 2018/1/23 16:12
-@software: PyCharm
-"""
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/3/15 21:35
+@desc:
+'''
 
 
 from sklearn.naive_bayes import MultinomialNB  # 导入多项式贝叶斯算法

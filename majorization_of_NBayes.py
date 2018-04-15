@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/4/15 21:35
+@desc:
+'''
 from sklearn.naive_bayes import MultinomialNB  # 导入多项式贝叶斯算法
 from sklearn import metrics
 from Tools import *

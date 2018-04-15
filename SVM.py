@@ -1,7 +1,13 @@
-#encoding:utf-8
-import os
-import sys
-import numpy as np
+#!/usr/bin/env python
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/3/25 21:35
+@desc:
+'''
+
 from sklearn.svm import LinearSVC
 from sklearn import metrics
 from Tools import *

@@ -1,13 +1,12 @@
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-"""
-@version: python3.6
-@author: XiangguoSun
-@contact: sunxiangguodut@qq.com
-@file: corpus2Bunch.py
-@time: 2018/1/23 16:12
-@software: PyCharm
-"""
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/2/18 21:00
+@desc:
+'''
 
 import os
 import pickle

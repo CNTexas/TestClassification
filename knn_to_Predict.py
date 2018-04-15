@@ -1,4 +1,12 @@
-
+#!/usr/bin/env python
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/3/15 21:35
+@desc:
+'''
 from sklearn import metrics
 from Tools import *
 from sklearn.neighbors import KNeighborsClassifier

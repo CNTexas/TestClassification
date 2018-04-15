@@ -1,14 +1,13 @@
-#!usr/bin/env python  
-# -*- coding:utf-8 _*-  
-""" 
-@project:chinese_text_classification
-@author:xiangguosun 
-@contact:sunxiangguodut@qq.com
-@website:http://blog.csdn.net/github_36326955
-@file: Tools.py 
-@platform: macOS High Sierra 10.13.1 Pycharm pro 2017.1 
-@time: 2018/01/23 
-"""
+#!/usr/bin/env python
+# encoding: utf-8
+'''
+@author: CNTexas
+@contact: dzhx0621@gmail.com
+@file: py.py
+@time: 2018/4/15 21:35
+@desc:
+'''
+
 import pickle
 import matplotlib.pyplot as plt
 import numpy as np
