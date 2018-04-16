@@ -36,7 +36,7 @@ def vector_space(stopword_path, bunch_path, space_path, train_tfidf_path=None):
 
 
 if __name__ == '__main__':
-    stopword_path = "train_word_bag/hlt_stop_words.txt"
+    stopword_path = "train_word_bag/chinese_stopword.txt"
     bunch_path = "train_word_bag/train_set.dat"
     space_path = "train_word_bag/tfdifspace.dat"
     vector_space(stopword_path, bunch_path, space_path)

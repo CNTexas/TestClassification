@@ -41,7 +41,7 @@ def corpus2Bunch(wordbag_path, seg_path):
 
 
 if __name__ == "__main__":
-    # 对训练集进行Bunch化操作：
+    #对训练集进行Bunch化操作：
     wordbag_path = "train_word_bag/train_set.dat"  # Bunch存储路径
     seg_path = "train_corpus_seg/"  # 分词后分类语料库路径
     corpus2Bunch(wordbag_path, seg_path)
