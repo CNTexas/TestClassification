@@ -18,8 +18,8 @@ train_set = readbunchobj(trainpath)
 # 导入测试集
 testpath = "test_word_bag/testspace.dat"
 test_set = readbunchobj(testpath)
-
-###
+print(1)
+##
 K = findK()
 knn = KNeighborsClassifier(n_neighbors=K,weights='distance',metric='euclidean')
 knn.fit(train_set.tdm,train_set.label)
