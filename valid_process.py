@@ -14,7 +14,7 @@ import jieba
 
 from Tools import savefile, readfile
 from corpus_segment import *
-from corpus2Bunch import *
+from corpus_Bunch import *
 from TFIDF_space import *
 
 if __name__ == "__main__":

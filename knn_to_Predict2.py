@@ -18,7 +18,6 @@ train_set = readbunchobj(trainpath)
 # 导入测试集
 testpath = "test_word_bag/testspace.dat"
 test_set = readbunchobj(testpath)
-print(1)
 ##
 K = findK()
 knn = KNeighborsClassifier(n_neighbors=K,weights='distance',metric='euclidean')
@@ -53,7 +52,18 @@ def metrics_result(actual, predict):
     print('精度:{0:.3f}'.format(metrics.precision_score(actual, predict, average='weighted')))
     print('召回:{0:0.3f}'.format(metrics.recall_score(actual, predict, average='weighted')))
     print('f1-score:{0:.3f}'.format(metrics.f1_score(actual, predict, average='weighted')))
+    '''
+    详细定义如下：
+    对于数据测试结果有下面4种情况：
+    TP: 预测为正， 实现为正
+    FP: 预测为正， 实现为负
+    FN: 预测为负，实现为正
+    TN: 预测为负， 实现为负
 
+    准确率： TP/ (TP+FP) 
+    召回率： TP(TP + FN)
+    F1-score: 2*TP/(2*TP + FP + FN) 
+    '''
 
 metrics_result(test_set.label, predicted)
 drawret(total/(test_set_len*9),acurations=acurations)
