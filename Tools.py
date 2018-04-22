@@ -37,6 +37,7 @@ def readbunchobj(path):
     return bunch
 #
 #输出结果
+'''
 def drawret(total,acurations):
     x = [0, 10]
     plt.figure()
@@ -49,5 +50,9 @@ def drawret(total,acurations):
     y=[total,total]
     plt.plot(x,y,'r')
     plt.show()
-
+'''
+def drawret(acurations):
+    name_list = ['Business', 'IT', 'Health', 'Education','Military','Tourism','Sports','Recruitment']
+    plt.bar(range(len(acurations)), acurations,color='rgbyckmr',tick_label=name_list)
+    plt.show()
 

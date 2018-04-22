@@ -11,6 +11,7 @@ from sklearn import metrics
 from Tools import *
 from sklearn.neighbors import KNeighborsClassifier
 from Find_K import findK
+from distance import *
 # 导入训练集
 trainpath = "train_word_bag/tfdifspace.dat"
 train_set = readbunchobj(trainpath)
@@ -66,5 +67,5 @@ def metrics_result(actual, predict):
     '''
 
 metrics_result(test_set.label, predicted)
-drawret(total/(test_set_len*9),acurations=acurations)
+drawret(acurations)
 ####
