@@ -34,6 +34,5 @@ def findK():
         list_k[i]=metrics.precision_score(test_set.label, predicted, average='weighted')
         #print("{}:{}".format(i,list_k[i]))
     return list(list_k.keys())[list(list_k.values()).index(max(list_k.values()))]
-# 计算分类精度：
-#metrics_result(test_set.label, predicted)
+
 

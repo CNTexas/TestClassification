@@ -65,7 +65,7 @@ def metrics_result(actual, predict):
     召回率： TP(TP + FN)
     F1-score: 2*TP/(2*TP + FP + FN) 
     '''
-
+print(acurations)
 metrics_result(test_set.label, predicted)
 drawret(acurations)
 ####
